@@ -1,443 +1,607 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Usul ASN Inspiratif</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        /* Custom scrollbar untuk tabel */
-        ::-webkit-scrollbar { height: 8px; width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px;}
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usulan ASN Inspiratif</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Inter',sans-serif}
+.glass{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(226,232,240,.9)}
+.header-bg{background:radial-gradient(circle at 10% 20%,rgba(59,130,246,.15),transparent 30%),radial-gradient(circle at 90% 10%,rgba(14,165,233,.12),transparent 30%),linear-gradient(135deg,#f0f7ff,#fff 55%,#f0f9ff)}
+.table-wrap{border:1px solid #dbe5f0;box-shadow:0 12px 35px rgba(15,23,42,.07)}
+.table-scroll{overflow:auto;max-height:620px}
+.table-scroll::-webkit-scrollbar{width:8px;height:9px}
+.table-scroll::-webkit-scrollbar-track{background:#f1f5f9}
+.table-scroll::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:99px}
+.modern-table{min-width:1120px;border-collapse:separate;border-spacing:0}
+.modern-table thead th{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,#174a85,#2563a9);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.025em;white-space:nowrap;padding:14px;border-bottom:1px solid rgba(255,255,255,.15)}
+.modern-table tbody td{padding:13px 14px;border-bottom:1px solid #edf2f7;vertical-align:middle;font-size:12px;color:#334155}
+.modern-table tbody tr{background:#fff;transition:.18s ease}
+.modern-table tbody tr:hover{background:#f8fbff;box-shadow:inset 3px 0 0 #2563eb}
+.modern-table tbody tr:last-child td{border-bottom:0}
+.avatar{width:38px;height:38px;min-width:38px;border-radius:11px;background:linear-gradient(135deg,#dbeafe,#eff6ff);color:#1d4ed8;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;border:1px solid #bfdbfe}
+.nip-code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:11px;color:#1e40af;background:#eff6ff;padding:5px 7px;border-radius:7px;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,#1769d1,#2563eb);box-shadow:0 8px 18px rgba(37,99,235,.22);transition:.2s}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(37,99,235,.28)}
+.fade{animation:fade .25s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.modal-bg{background:rgba(15,23,42,.55);backdrop-filter:blur(6px)}
+.main-header-fixed{background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+@media(max-width:640px){#mainHeader .max-w-7xl{padding-top:.85rem;padding-bottom:.85rem}#mainHeader h1{font-size:1.25rem;line-height:1.35}#mainHeader p{font-size:.7rem;line-height:1.25}}
+
+.instruction-modal{animation:instructionIn .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes instructionIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.instruction-hero{background:radial-gradient(circle at 10% 10%,rgba(255,255,255,.28),transparent 28%),radial-gradient(circle at 92% 12%,rgba(125,211,252,.28),transparent 25%),linear-gradient(135deg,#174a85 0%,#2563a9 52%,#0ea5e9 100%)}
+.instruction-step{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.instruction-step:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.08);border-color:#bfdbfe}
+.instruction-icon{box-shadow:0 8px 18px rgba(37,99,235,.16)}
+.guide-pulse{animation:guidePulse 2.2s ease-in-out infinite}
+@keyframes guidePulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,.20)}50%{box-shadow:0 0 0 8px rgba(37,99,235,0)}}
+@media(max-width:640px){.instruction-modal{max-height:92vh}.instruction-hero{padding:18px!important}}
+
+</style>
 </head>
-<body class="bg-gradient-to-br from-indigo-50 via-white to-blue-50 min-h-screen text-slate-800 antialiased p-4 md:p-8">
 
-    <div class="max-w-6xl mx-auto">
-        
+<body class="bg-gradient-to-br from-blue-50 via-white to-sky-50 min-h-screen text-slate-800 antialiased">
 
-        <main class="flex flex-col gap-10">
-            <!-- Bagian Atas: Form Usulan -->
-            <div class="w-full max-w-3xl mx-auto">
-                <div class="glass-panel rounded-2xl shadow-xl shadow-indigo-100/50 p-6 md:p-8">
-                    <h2 class="text-xl font-semibold mb-6 flex items-center gap-2">
-                        <i class="ph ph-file-text text-indigo-500"></i> Formulir Pengisian
-                    </h2>
-                    
-                    
-                    <form id="usulForm" class="space-y-5">
-                        <div>
-                            <label for="nip" class="block text-sm font-medium text-slate-700 mb-1">NIP (Masukkan nip dengan benar sesuai data kepegawaian BKN)</label>
-                            <input type="text" id="nip" name="nip" required placeholder="Masukkan 18 digit NIP..." 
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                            <div id="nipStatus" class="text-xs mt-1.5 font-medium flex items-center gap-1 hidden transition-all"></div>
-                        </div>
-                        
-                        <div>
-                            <label for="nama" class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
-                            <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap beserta gelar" 
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                        </div>
+<header id="mainHeader" class="header-bg border-b border-blue-100 shadow-sm fixed top-0 left-0 right-0 z-[60] main-header-fixed">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 md:w-[72px] md:h-[72px] rounded-2xl bg-white/95 border border-blue-100 flex items-center justify-center shadow-lg shadow-blue-200/50 overflow-hidden shrink-0">
+          <img src="https://cdn.phototourl.com/member/2026-09-21-37d60d92-057c-49dd-a720-aa8d86029af9.png" alt="Logo ASN Inspiratif" class="w-full h-full object-contain p-1.5" />
+        </div>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-blue-950">Usulan ASN Inspiratif</h1>
+          <p class="text-sm text-slate-500 mt-1">Layanan pengusulan aparatur sipil negara yang inspiratif, berintegritas, dan berdampak nyata.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 bg-white/80 border border-blue-100 rounded-2xl px-4 py-3 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center"><i class="ph ph-buildings text-xl"></i></div>
+        <div>
+          <p class="text-[10px] uppercase tracking-wider font-bold text-blue-700">Portal Layanan</p>
+          <p class="text-xs font-semibold text-slate-700">Kepegawaian Terpadu</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-                        <div>
-                            <label for="jabatan" class="block text-sm font-medium text-slate-700 mb-1">Jabatan</label>
-                            <input type="text" id="jabatan" name="jabatan" required placeholder="Contoh: Analis Kebijakan Ahli Muda" 
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                        </div>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-7">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <div>
-                                <label for="pangkat" class="block text-sm font-medium text-slate-700 mb-1">Pangkat/Golongan</label>
-                                <input type="text" id="pangkat" name="pangkat" required placeholder="Contoh: Penata / IIIc" 
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                            </div>
-                            <div>
-                                <label for="tempat_tugas" class="block text-sm font-medium text-slate-700 mb-1">Tempat Tugas</label>
-                                <input type="text" id="tempat_tugas" name="tempat_tugas" required placeholder="Contoh: BKD Prov. Bali" 
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                            </div>
-                        </div>
+    <div class="lg:col-span-5">
+      <div class="glass rounded-2xl shadow-xl shadow-blue-100/40 overflow-hidden h-full">
+        <div class="px-6 py-5 border-b border-slate-100 flex items-center gap-3 bg-white/50">
+          <div class="w-11 h-11 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center"><i class="ph ph-file-text text-2xl"></i></div>
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">Formulir Pengisian</h2>
+            <div class="flex items-start justify-between gap-3">
+              <p class="text-xs text-slate-500 mt-0.5">Ketik 18 digit NIP untuk memuat data ASN otomatis.</p>
+              <button type="button" id="openGuideBtn" class="guide-pulse shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 text-[10px] font-bold transition-all" title="Buka petunjuk pengisian">
+                <i class="ph ph-info"></i> Petunjuk
+              </button>
+            </div>
+          </div>
+        </div>
 
-                        <div>
-                            <label for="keterangan" class="block text-sm font-medium text-slate-700 mb-1">Keterangan / Alasan Usulan</label>
-                            <textarea id="keterangan" name="keterangan" rows="3" required placeholder="Tuliskan inovasi atau pencapaian inspiratif yang dilakukan..." 
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none resize-none"></textarea>
-                        </div>
+        <div class="p-6">
+          <form id="usulForm" class="space-y-4">
+            <input type="hidden" name="action" value="submit">
 
-                        <button type="submit" id="btnSubmit" 
-                            class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-lg shadow-indigo-200 transition-all flex justify-center items-center gap-2">
-                            <i class="ph ph-paper-plane-tilt"></i> Kirim Usulan
-                        </button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="nip" class="block text-xs font-bold text-slate-700 mb-1.5">NIP (18 Digit)</label>
+                <input type="text" id="nip" name="nip" required maxlength="18" inputmode="numeric" placeholder="Contoh: 19850101..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm font-mono">
+                <div id="nipStatus" class="text-[11px] mt-1.5 font-medium flex items-center gap-1 hidden"></div>
+              </div>
 
-                        <div id="alertBox" class="hidden mt-4 p-4 rounded-xl text-sm font-medium transition-all">
-                            <!-- Pesan sukses/error akan muncul di sini -->
-                        </div>
-                    </form>
-                </div>
+              <div>
+                <label for="nama" class="block text-xs font-bold text-slate-700 mb-1.5">Nama Lengkap & Gelar</label>
+                <input type="text" id="nama" name="nama" required placeholder="Otomatis terisi atau isi manual" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm">
+              </div>
             </div>
 
-            <!-- Bagian Bawah: Tabel Riwayat -->
-            <div class="w-full">
-                <div class="glass-panel rounded-2xl shadow-xl shadow-slate-100/50 flex flex-col h-full overflow-hidden border border-slate-100">
-                    
-                    <!-- Header Tabel & Search -->
-                    <div class="p-6 border-b border-slate-100 bg-white/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <h2 class="text-xl font-semibold flex items-center gap-2 whitespace-nowrap text-slate-800">
-                            <i class="ph ph-clock-counter-clockwise text-indigo-500"></i> Riwayat Usulan
-                        </h2>
-                        <div class="relative w-full sm:max-w-xs">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="ph ph-magnifying-glass text-slate-400"></i>
-                            </div>
-                            <input type="text" id="searchInput" placeholder="Cari NIP / Nama..." 
-                                class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all text-sm outline-none">
-                        </div>
-                    </div>
-                    
-                    <div class="p-6 overflow-x-auto bg-slate-50/50 rounded-b-2xl">
-                        <!-- Table Wrapper -->
-                        <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm mb-4">
-                            <table class="w-full text-left border-collapse table-auto">
-                                <thead>
-                                    <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider">
-                                        <th class="px-4 md:px-6 py-4 font-semibold w-32 whitespace-nowrap">Waktu</th>
-                                        <th class="px-4 md:px-6 py-4 font-semibold whitespace-nowrap">Pegawai</th>
-                                        <th class="px-4 md:px-6 py-4 font-semibold">Jabatan & Pangkat</th>
-                                        <th class="px-4 md:px-6 py-4 font-semibold">Tempat Tugas</th>
-                                        <th class="px-4 md:px-6 py-4 font-semibold">Alasan Usulan</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="historyContainer" class="divide-y divide-slate-100">
-                                    <!-- Data baris tabel akan dimuat via JavaScript -->
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <!-- Empty State -->
-                        <div id="emptyState" class="hidden flex-col items-center justify-center p-12 text-slate-400 w-full">
-                            <i class="ph ph-folder-open text-5xl mb-3 text-slate-300"></i>
-                            <p class="text-base font-medium text-slate-500">Belum ada usulan ditemukan</p>
-                            <p class="text-sm mt-1 text-center">Silakan buat usulan melalui form atau ubah kata kunci pencarian.</p>
-                        </div>
-                    </div>
-                </div>
+            <div>
+              <label for="jabatan" class="block text-xs font-bold text-slate-700 mb-1.5">Jabatan</label>
+              <input type="text" id="jabatan" name="jabatan" required placeholder="Contoh: Analis Kebijakan Ahli Muda" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm">
             </div>
-        </main>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="pangkat" class="block text-xs font-bold text-slate-700 mb-1.5">Pangkat/Golongan</label>
+                <input type="text" id="pangkat" name="pangkat" required placeholder="Contoh: Penata / IIIc" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm">
+              </div>
+              <div>
+                <label for="tempat_tugas" class="block text-xs font-bold text-slate-700 mb-1.5">Tempat Tugas</label>
+                <input type="text" id="tempat_tugas" name="tempat_tugas" required placeholder="Contoh: Dinas Pendidikan" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-sm">
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <label for="keterangan" class="block text-xs font-bold text-slate-700">Keterangan / Alasan Usulan</label>
+                <span class="text-[10px] text-slate-400"><span id="charCount">0</span>/500</span>
+              </div>
+              <textarea id="keterangan" name="keterangan" rows="4" maxlength="500" placeholder="Tuliskan inovasi, prestasi, atau dedikasi luar biasa..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none resize-none text-sm"></textarea>
+            </div>
+
+            <button type="submit" id="btnSubmit" class="btn-primary w-full py-3 px-4 text-white font-semibold rounded-xl flex justify-center items-center gap-2 text-sm">
+              <i class="ph ph-paper-plane-tilt text-lg"></i> Kirim Usulan
+            </button>
+
+            <div id="alertBox" class="hidden p-3.5 rounded-xl text-sm font-medium"></div>
+          </form>
+        </div>
+      </div>
     </div>
 
-    <script>
-        // ---------------------------------------------------------
-        // KONFIGURASI GOOGLE APPS SCRIPT
-        // Jika Anda sudah men-deploy script backend.gs, masukkan URL Web App-nya di sini.
-        // Jika dikosongkan, aplikasi akan berjalan menggunakan memori browser sementara (In-Memory).
-        // ---------------------------------------------------------
-        const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyyJ6cp17cmzKr7EAq1q-N7HQjGIvNf96sbhcWuMS_LJALqvL_T6RFirdMERnRV7Ep1/exec"; 
+    <div class="lg:col-span-7">
+      <div class="relative overflow-hidden rounded-2xl shadow-xl shadow-blue-100/40 border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-sky-100 h-full flex flex-col justify-between p-6">
+        <div class="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-blue-200/30"></div>
+        <div class="absolute -left-16 bottom-0 w-44 h-44 rounded-full bg-sky-200/30"></div>
         
-        // State management
-        let usulanData = []; // Menyimpan semua data 
-        let isSubmitting = false;
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-white text-blue-700 shadow-sm flex items-center justify-center"><i class="ph ph-trophy text-2xl"></i></div>
+            <div>
+              <h2 class="text-xl font-extrabold text-blue-950">Penghargaan ASN Inspiratif</h2>
+              <p class="text-xs text-slate-500">Mengapresiasi dedikasi tanpa batas untuk kemajuan pelayanan publik.</p>
+            </div>
+          </div>
+          
+          <div class="py-8">
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+              <div>
+                <div class="text-5xl text-blue-200 leading-none mb-1">“</div>
+                <p class="text-sm md:text-base font-medium leading-7 text-slate-700 italic">ASN yang inspiratif bekerja dengan hati nurani, menghasilkan inovasi bermakna, serta menjadi teladan dalam integritas dan profesionalisme.</p>
+              </div>
+              <div class="flex justify-center">
+                <div class="w-40 h-40 rounded-full bg-white/80 shadow-inner flex items-center justify-center">
+                  <div class="w-28 h-28 rounded-full bg-gradient-to-br from-blue-100 to-sky-50 flex items-center justify-center text-blue-700"><i class="ph ph-users-three text-6xl"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        // Elemen DOM
-        const form = document.getElementById('usulForm');
-        const btnSubmit = document.getElementById('btnSubmit');
-        const alertBox = document.getElementById('alertBox');
-        const historyContainer = document.getElementById('historyContainer');
-        const searchInput = document.getElementById('searchInput');
-        const emptyState = document.getElementById('emptyState');
-        const nipInput = document.getElementById('nip');
-        const nipStatus = document.getElementById('nipStatus');
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 bg-white/80 rounded-2xl p-3 border border-white">
+          <div class="text-center px-2 py-3 border-r border-slate-100"><i class="ph ph-shield-check text-xl text-blue-600"></i><p class="text-[11px] font-bold mt-1 text-slate-700">Profesional</p></div>
+          <div class="text-center px-2 py-3 border-r border-slate-100"><i class="ph ph-handshake text-xl text-blue-600"></i><p class="text-[11px] font-bold mt-1 text-slate-700">Integritas</p></div>
+          <div class="text-center px-2 py-3 border-r border-slate-100"><i class="ph ph-heart text-xl text-blue-600"></i><p class="text-[11px] font-bold mt-1 text-slate-700">Pelayanan</p></div>
+          <div class="text-center px-2 py-3"><i class="ph ph-chart-line-up text-xl text-blue-600"></i><p class="text-[11px] font-bold mt-1 text-slate-700">Berdampak</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        function formatDate(dateStr) {
-            const date = new Date(dateStr);
-            const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' };
-            return date.toLocaleDateString('id-ID', options);
-        }
+  <section class="mt-6">
+    <div class="glass rounded-2xl overflow-hidden table-wrap">
+      <div class="px-5 md:px-6 py-5 border-b border-slate-100 bg-white/80">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center"><i class="ph ph-clock-counter-clockwise text-2xl"></i></div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-lg font-bold text-slate-900">Riwayat Usulan</h2>
+                <span id="totalBadge" class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-100">0 DATA</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-0.5">Daftar lengkap rekam jejak usulan ASN Inspiratif.</p>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
+            <div class="relative w-full sm:w-80">
+              <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+              <input type="text" id="searchInput" placeholder="Cari nama, NIP, jabatan, unit..." class="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-xs">
+            </div>
+            <button type="button" id="resetSearch" class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-xs font-semibold flex items-center justify-center gap-2"><i class="ph ph-arrow-counter-clockwise"></i> Reset</button>
+          </div>
+        </div>
+      </div>
 
-        // Helper untuk mendapatkan inisial nama dari string
-        function getInitials(name) {
-            if (!name) return "AS";
-            const parts = name.split(' ').filter(p => p.length > 0);
-            if (parts.length >= 2) {
-                return (parts[0][0] + parts[1][0]).toUpperCase();
-            }
-            return name.substring(0, 2).toUpperCase();
-        }
+      <div class="p-4 md:p-5 bg-slate-50/70">
+        <div class="table-wrap rounded-xl overflow-hidden bg-white">
+          <div class="table-scroll">
+            <table class="modern-table w-full">
+              <thead><tr>
+                <th class="text-center w-12">No</th>
+                <th>ASN yang Diusulkan</th>
+                <th>NIP</th>
+                <th>Jabatan</th>
+                <th>Pangkat/Gol</th>
+                <th>Tempat Tugas</th>
+                <th>Tanggal Usulan</th>
+                <th>Status</th>
+                <th class="text-center">Aksi</th>
+              </tr></thead>
+              <tbody id="historyTableBody">
+                <tr><td colspan="9"><div class="flex flex-col items-center justify-center py-16 text-slate-400"><i class="ph ph-spinner animate-spin text-3xl text-blue-500 mb-3"></i><p class="text-sm">Memuat riwayat usulan...</p></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="px-4 py-3 border-t border-slate-100 bg-white flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p id="tableInfo" class="text-[11px] text-slate-500">Memuat data...</p>
+            <div id="pagination" class="flex items-center gap-1"></div>
+          </div>
+        </div>
+        <div id="emptyState" class="hidden flex-col items-center justify-center py-16 text-slate-400">
+          <div class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center mb-4"><i class="ph ph-folder-open text-3xl text-slate-300"></i></div>
+          <p class="text-sm font-bold text-slate-600">Belum ada usulan ditemukan</p>
+          <p class="text-xs mt-1 text-center max-w-sm text-slate-400">Silakan buat usulan melalui formulir atau sesuaikan kata kunci pencarian Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-        function renderCards(dataToRender) {
-            historyContainer.innerHTML = '';
-            
-            // Elemen pembungkus tabel
-            const tableWrapper = historyContainer.closest('.overflow-x-auto.rounded-xl');
+<!-- MODAL PETUNJUK PENGISIAN -->
+<div id="instructionModal" class="fixed inset-0 z-[70] modal-bg flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="instructionTitle">
+  <div class="instruction-modal bg-white w-full max-w-3xl rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+    <div class="instruction-hero text-white p-6 md:p-7 relative overflow-hidden shrink-0">
+      <div class="absolute -right-10 -top-10 w-36 h-36 rounded-full bg-white/10"></div>
+      <div class="absolute right-20 bottom-[-55px] w-32 h-32 rounded-full bg-cyan-300/10"></div>
+      <div class="relative flex items-start justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center shadow-lg"><i class="ph ph-sparkle text-3xl"></i></div>
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] font-bold uppercase tracking-wider mb-2"><i class="ph ph-lightbulb"></i> Panduan Singkat</div>
+            <h2 id="instructionTitle" class="text-xl md:text-2xl font-extrabold tracking-tight">Petunjuk Pengisian ASN Inspiratif</h2>
+            <p class="text-xs md:text-sm text-blue-100 mt-1 max-w-xl">Ikuti beberapa langkah sederhana agar usulan tersampaikan dengan lengkap, jelas, dan inspiratif.</p>
+          </div>
+        </div>
+        <button type="button" id="closeGuideTop" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center transition-colors shrink-0" aria-label="Tutup petunjuk"><i class="ph ph-x text-xl"></i></button>
+      </div>
+    </div>
 
-            if (dataToRender.length === 0) {
-                emptyState.classList.remove('hidden');
-                emptyState.classList.add('flex');
-                if (tableWrapper) tableWrapper.classList.add('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                emptyState.classList.remove('flex');
-                if (tableWrapper) tableWrapper.classList.remove('hidden');
-                
-                dataToRender.forEach(item => {
-                    const tr = document.createElement('tr');
-                    tr.className = "hover:bg-indigo-50/50 transition-colors group";
-                    
-                    const initials = getInitials(item.nama);
-                    
-                    tr.innerHTML = `
-                        <td class="px-4 md:px-6 py-4 text-xs text-slate-500 align-top whitespace-nowrap">
-                            ${formatDate(item.timestamp)}
-                        </td>
-                        <td class="px-4 md:px-6 py-4 align-top whitespace-nowrap">
-                            <div class="flex items-start gap-3">
-                                <div class="w-10 h-10 flex-shrink-0 rounded-full bg-gradient-to-br from-indigo-100 to-blue-50 text-indigo-700 flex items-center justify-center font-bold text-sm shadow-inner border border-white mt-1">
-                                    ${initials}
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-slate-800 text-sm">${item.nama}</div>
-                                    <div class="text-xs text-indigo-600 font-mono mt-0.5">${item.nip}</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-4 md:px-6 py-4 align-top">
-                            <div class="text-sm text-slate-700 font-medium whitespace-normal">${item.jabatan}</div>
-                            <div class="text-xs mt-1.5"><span class="inline-flex items-center px-2 py-0.5 rounded text-slate-600 bg-slate-100 border border-slate-200 font-medium whitespace-normal break-words text-left">${item.pangkat}</span></div>
-                        </td>
-                        <td class="px-4 md:px-6 py-4 text-sm text-slate-600 align-top">
-                            <div class="flex items-start gap-1.5 whitespace-normal">
-                                <i class="ph ph-map-pin text-rose-400 text-base mt-0.5 flex-shrink-0"></i> 
-                                <span>${item.tempat_tugas}</span>
-                            </div>
-                        </td>
-                        <td class="px-4 md:px-6 py-4 align-top">
-                            <div class="text-sm text-slate-600 italic whitespace-normal group-hover:text-slate-800 transition-colors">
-                                "${item.keterangan}"
-                            </div>
-                        </td>
-                    `;
-                    historyContainer.appendChild(tr);
-                });
-            }
-        }
+    <div class="p-5 md:p-6 overflow-y-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+        <div class="instruction-step rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+          <div class="flex gap-3"><div class="instruction-icon w-10 h-10 min-w-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-extrabold">01</div><div><h3 class="text-sm font-extrabold text-slate-800">Masukkan NIP</h3><p class="text-xs leading-5 text-slate-500 mt-1">Ketik <b>18 digit NIP</b>. Sistem akan mencari dan mengisi data ASN secara otomatis apabila tersedia di database.</p></div></div>
+        </div>
+        <div class="instruction-step rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+          <div class="flex gap-3"><div class="instruction-icon w-10 h-10 min-w-10 rounded-xl bg-cyan-600 text-white flex items-center justify-center font-extrabold">02</div><div><h3 class="text-sm font-extrabold text-slate-800">Periksa Data ASN</h3><p class="text-xs leading-5 text-slate-500 mt-1">Pastikan <b>nama, jabatan, pangkat/golongan, dan tempat tugas</b> sudah benar sebelum melanjutkan.</p></div></div>
+        </div>
+        <div class="instruction-step rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+          <div class="flex gap-3"><div class="instruction-icon w-10 h-10 min-w-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-extrabold">03</div><div><h3 class="text-sm font-extrabold text-slate-800">Tulis Alasan Usulan</h3><p class="text-xs leading-5 text-slate-500 mt-1">Jelaskan secara ringkas <b>inovasi, prestasi, dedikasi, keteladanan, atau dampak pelayanan</b> yang menjadi alasan pengusulan.</p></div></div>
+        </div>
+        <div class="instruction-step rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
+          <div class="flex gap-3"><div class="instruction-icon w-10 h-10 min-w-10 rounded-xl bg-violet-600 text-white flex items-center justify-center font-extrabold">04</div><div><h3 class="text-sm font-extrabold text-slate-800">Periksa &amp; Kirim</h3><p class="text-xs leading-5 text-slate-500 mt-1">Pastikan seluruh informasi sudah sesuai, kemudian klik <b>Kirim Usulan</b>. Hindari mengirim data yang sama berulang kali.</p></div></div>
+        </div>
+      </div>
 
-        searchInput.addEventListener('input', (e) => {
-            const keyword = e.target.value.toLowerCase().trim();
-            if (!keyword) {
-                renderCards(usulanData);
-                return;
-            }
-            
-            // Filter berdasarkan NIP atau NAMA
-            const filteredData = usulanData.filter(item => 
-                item.nip.toLowerCase().includes(keyword) || 
-                item.nama.toLowerCase().includes(keyword)
-            );
-            
-            renderCards(filteredData);
-        });
+      <div class="mt-4 rounded-2xl border border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50 p-4">
+        <div class="flex gap-3">
+          <div class="w-10 h-10 min-w-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center"><i class="ph ph-star-four text-xl"></i></div>
+          <div><h3 class="text-sm font-extrabold text-amber-900">Tips agar usulan lebih inspiratif</h3><p class="text-xs leading-5 text-amber-800/80 mt-1">Gunakan uraian yang <b>spesifik, faktual, dan berdampak</b>. Fokus pada kontribusi nyata yang dapat menjadi teladan bagi ASN lainnya dan meningkatkan kualitas pelayanan publik.</p></div>
+        </div>
+      </div>
 
-        // ---------------------------------------------------------
-        // FITUR AUTO-FILL NIP
-        // ---------------------------------------------------------
-        nipInput.addEventListener('input', (e) => {
-            const nipVal = e.target.value.trim();
-            
-            // Mengecek apabila NIP yang diketik mencapai 18 digit
-            if (nipVal.length === 18 && !isNaN(nipVal)) {
-                lookupNip(nipVal);
-            } else if (nipVal.length === 0) {
-                nipStatus.classList.add('hidden');
-                resetPegawaiFields();
-            } else {
-                nipStatus.classList.remove('hidden', 'text-green-600', 'text-red-500', 'text-indigo-600');
-                nipStatus.classList.add('text-slate-500');
-                nipStatus.innerHTML = '<i class="ph ph-info"></i> Masukkan 18 digit NIP untuk auto-fill';
-            }
-        });
+      <div class="mt-5 flex items-center justify-between gap-3">
+        <p class="text-[10px] text-slate-400 flex items-center gap-1.5"><i class="ph ph-shield-check text-emerald-500 text-base"></i>Pastikan data yang diisi sudah benar sebelum dikirim.</p>
+        <button type="button" id="startFormBtn" class="btn-primary px-5 py-3 rounded-xl text-white text-xs font-bold inline-flex items-center gap-2">Mulai Pengisian <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
 
-        function resetPegawaiFields() {
-            document.getElementById('nama').value = '';
-            document.getElementById('jabatan').value = '';
-            document.getElementById('pangkat').value = '';
-            document.getElementById('tempat_tugas').value = '';
-        }
+<div id="detailModal" class="hidden fixed inset-0 z-50 modal-bg items-center justify-center p-4">
+  <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden fade">
+    <div class="px-5 py-4 bg-gradient-to-r from-blue-700 to-blue-600 text-white flex items-center justify-between">
+      <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center"><i class="ph ph-user-circle text-2xl"></i></div><div><h3 class="font-bold">Detail Usulan ASN</h3><p class="text-[10px] text-blue-100">Informasi lengkap pengusulan kandidat</p></div></div>
+      <button type="button" id="closeModal" class="w-9 h-9 rounded-lg hover:bg-white/10 flex items-center justify-center transition-colors"><i class="ph ph-x text-xl"></i></button>
+    </div>
+    <div id="modalContent" class="p-5 md:p-6"></div>
+    <div class="px-5 py-4 border-t border-slate-100 bg-slate-50 flex justify-end"><button type="button" id="closeModalBottom" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold">Tutup</button></div>
+  </div>
+</div>
 
-        async function lookupNip(nip) {
-            nipStatus.classList.remove('hidden', 'text-green-600', 'text-red-500', 'text-slate-500');
-            nipStatus.classList.add('text-indigo-600');
-            nipStatus.innerHTML = '<i class="ph ph-spinner animate-spin text-base"></i> Mencari data pegawai...';
+<script>
+const GAS_WEB_APP_URL="https://script.google.com/macros/s/AKfycbzGPJG5O7lX3RMNqF50Zc4KZZLYslh40LFHoG2V83tYfPnyCYiAHTxJtu7R-XWH3Gy-/exec";
+let usulanData=[],filteredData=[],currentPage=1,isSubmitting=false;
+const rowsPerPage=8;
 
-            if (GAS_WEB_APP_URL) {
-                try {
-                    const response = await fetch(`${GAS_WEB_APP_URL}?action=lookup&nip=${nip}`);
-                    const result = await response.json();
-                    
-                    if(result.status === 'success') {
-                        document.getElementById('nama').value = result.data.nama;
-                        document.getElementById('jabatan').value = result.data.jabatan;
-                        document.getElementById('pangkat').value = result.data.pangkat;
-                        document.getElementById('tempat_tugas').value = result.data.tempat_tugas;
-                        
-                        nipStatus.classList.replace('text-indigo-600', 'text-green-600');
-                        nipStatus.innerHTML = '<i class="ph ph-check-circle text-base"></i> Data ditemukan & dimuat otomatis';
-                    } else {
-                        resetPegawaiFields();
-                        nipStatus.classList.replace('text-indigo-600', 'text-red-500');
-                        nipStatus.innerHTML = '<i class="ph ph-warning-circle text-base"></i> Data tidak ditemukan di database';
-                    }
-                } catch (error) {
-                    nipStatus.classList.replace('text-indigo-600', 'text-red-500');
-                    nipStatus.innerHTML = '<i class="ph ph-x-circle text-base"></i> Gagal terhubung ke server';
-                }
-            } else {
-                // Simulasi In-Memory (Hanya untuk preview di web ini)
-                setTimeout(() => {
-                    if(nip === '198001012010011001') {
-                        document.getElementById('nama').value = 'Budi Santoso, S.Kom., M.Si.';
-                        document.getElementById('jabatan').value = 'Pranata Komputer Ahli Madya';
-                        document.getElementById('pangkat').value = 'Pembina / IVa';
-                        document.getElementById('tempat_tugas').value = 'Dinas Kominfo Provinsi Bali';
-                        
-                        nipStatus.classList.replace('text-indigo-600', 'text-green-600');
-                        nipStatus.innerHTML = '<i class="ph ph-check-circle text-base"></i> Data ditemukan (Simulasi Preview)';
-                    } else {
-                        resetPegawaiFields();
-                        nipStatus.classList.replace('text-indigo-600', 'text-red-500');
-                        nipStatus.innerHTML = `<i class="ph ph-warning-circle text-base"></i> NIP tidak ditemukan (Gunakan NIP di placeholder untuk test)`;
-                    }
-                }, 1000);
-            }
-        }
 
-        function showAlert(message, type = 'success') {
-            alertBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
-            
-            if (type === 'success') {
-                alertBox.classList.add('bg-green-100', 'text-green-800');
-                alertBox.innerHTML = `<i class="ph ph-check-circle mr-1"></i> ${message}`;
-            } else {
-                alertBox.classList.add('bg-red-100', 'text-red-800');
-                alertBox.innerHTML = `<i class="ph ph-warning-circle mr-1"></i> ${message}`;
-            }
-            
-            // Hilangkan alert setelah 4 detik
-            setTimeout(() => {
-                alertBox.classList.add('hidden');
-            }, 4000);
-        }
+const mainHeader=document.getElementById('mainHeader');
+window.addEventListener('scroll',()=>{
+  if(mainHeader) mainHeader.classList.toggle('shadow-md',window.scrollY>8);
+},{passive:true});
+const $=id=>document.getElementById(id);
+const form=$('usulForm'),btnSubmit=$('btnSubmit'),alertBox=$('alertBox'),nipInput=$('nip'),nipStatus=$('nipStatus');
+const historyTableBody=$('historyTableBody'),searchInput=$('searchInput'),resetSearch=$('resetSearch'),emptyState=$('emptyState'),totalBadge=$('totalBadge'),tableInfo=$('tableInfo'),pagination=$('pagination'),detailModal=$('detailModal'),modalContent=$('modalContent');
 
-        async function loadData() {
-            if (GAS_WEB_APP_URL) {
-                // Fetch dari Google Sheets (jika URL tersedia)
-                historyContainer.innerHTML = '<div class="col-span-full flex flex-col items-center justify-center p-12 text-slate-400 min-h-[200px]"><i class="ph ph-spinner animate-spin text-4xl mb-3 text-indigo-500"></i><p>Memuat data profil...</p></div>';
-                try {
-                    const response = await fetch(GAS_WEB_APP_URL);
-                    const result = await response.json();
-                    if(result.status === 'success') {
-                        usulanData = result.data;
-                        renderCards(usulanData);
-                    }
-                } catch (error) {
-                    console.error("Gagal memuat data dari Spreadsheet:", error);
-                    showAlert("Gagal memuat riwayat usulan dari server.", "error");
-                }
-            } else {
-                // Tampilan dummy jika belum ada backend
-                renderCards(usulanData);
-            }
-        }
+function escapeHTML(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
+function normalize(v){return String(v??'').trim();}
+function getInitials(name){
+  const p=normalize(name).split(/\s+/).filter(Boolean);
+  return p.length>1?(p[0][0]+p[1][0]).toUpperCase():(p[0]||'AS').slice(0,2).toUpperCase();
+}
+function formatDate(v){
+  if(!v)return'-';
+  const d=new Date(v);
+  return isNaN(d)?escapeHTML(v):d.toLocaleString('id-ID',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+}
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            if(isSubmitting) return;
+function showAlert(message,type='success'){
+  alertBox.className='p-3.5 rounded-xl text-sm font-medium flex items-start gap-2 '+(type==='success'?'bg-emerald-50 text-emerald-700 border border-emerald-100':'bg-red-50 text-red-700 border border-red-100');
+  alertBox.innerHTML=`<i class="ph ${type==='success'?'ph-check-circle':'ph-warning-circle'} text-lg"></i><span>${escapeHTML(message)}</span>`;
+  alertBox.classList.remove('hidden');
+  clearTimeout(showAlert.timer); 
+  showAlert.timer=setTimeout(()=>alertBox.classList.add('hidden'),6000);
+}
 
-            // Mengubah state tombol
-            isSubmitting = true;
-            btnSubmit.innerHTML = `<i class="ph ph-spinner animate-spin"></i> Memproses...`;
-            btnSubmit.classList.add('opacity-70', 'cursor-not-allowed');
+function renderTable(){
+  totalBadge.textContent=`${filteredData.length} DATA`;
+  const pages=Math.max(1,Math.ceil(filteredData.length/rowsPerPage)); 
+  if(currentPage>pages) currentPage=pages;
+  historyTableBody.innerHTML='';
+  
+  if(!filteredData.length){
+    emptyState.classList.remove('hidden');emptyState.classList.add('flex');
+    tableInfo.textContent='Tidak ada data yang ditampilkan';
+    pagination.innerHTML='';
+    return;
+  }
+  
+  emptyState.classList.add('hidden');emptyState.classList.remove('flex');
+  const start=(currentPage-1)*rowsPerPage, end=Math.min(start+rowsPerPage,filteredData.length);
+  
+  filteredData.slice(start,end).forEach((item,i)=>{
+    const tr=document.createElement('tr');
+    tr.className='fade';
+    tr.innerHTML=`
+      <td class="text-center font-bold text-slate-400">${start+i+1}</td>
+      <td>
+        <div class="flex items-center gap-3 min-w-[190px]">
+          <div class="avatar">${escapeHTML(getInitials(item.nama))}</div>
+          <div class="min-w-0">
+            <div class="font-bold text-slate-800 text-xs truncate max-w-[220px]" title="${escapeHTML(item.nama)}">${escapeHTML(item.nama)||'-'}</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Kandidat Inspiratif</div>
+          </div>
+        </div>
+      </td>
+      <td><span class="nip-code">${escapeHTML(item.nip)||'-'}</span></td>
+      <td><div class="max-w-[180px] font-semibold text-slate-700 truncate" title="${escapeHTML(item.jabatan)}">${escapeHTML(item.jabatan)||'-'}</div></td>
+      <td><span class="inline-flex px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 border border-amber-100 text-[10px] font-semibold whitespace-nowrap">${escapeHTML(item.pangkat)||'-'}</span></td>
+      <td><div class="flex items-center gap-1.5 max-w-[180px]"><i class="ph ph-map-pin text-slate-400"></i><span class="truncate" title="${escapeHTML(item.tempat_tugas)}">${escapeHTML(item.tempat_tugas)||'-'}</span></div></td>
+      <td><span class="text-[11px] font-semibold text-slate-700 whitespace-nowrap">${formatDate(item.timestamp)}</span></td>
+      <td><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 text-[10px] font-bold whitespace-nowrap"><i class="ph ph-check-circle"></i>Tercatat</span></td>
+      <td class="text-center"><button type="button" class="detail-btn inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold shadow-sm transition-colors" data-index="${start+i}"><i class="ph ph-eye"></i>Lihat</button></td>
+    `;
+    historyTableBody.appendChild(tr);
+  });
+  
+  tableInfo.textContent=`Menampilkan ${start+1}–${end} dari ${filteredData.length} data`;
+  renderPagination(pages);
+}
 
-            // Mengambil nilai form
-            const payload = {
-                nip: document.getElementById('nip').value,
-                nama: document.getElementById('nama').value,
-                jabatan: document.getElementById('jabatan').value,
-                pangkat: document.getElementById('pangkat').value,
-                tempat_tugas: document.getElementById('tempat_tugas').value,
-                keterangan: document.getElementById('keterangan').value
-            };
+function renderPagination(totalPages){
+  pagination.innerHTML='';
+  if(totalPages<=1) return;
+  const add=(label,page,disabled=false,active=false)=>{
+    const b=document.createElement('button');
+    b.type='button';b.textContent=label;b.disabled=disabled;
+    b.className='min-w-8 h-8 px-2 rounded-lg border text-[11px] font-semibold '+(active?'bg-blue-600 text-white border-blue-600 shadow-sm':'bg-white text-slate-600 border-slate-200 hover:bg-blue-50')+(disabled?' opacity-40 cursor-not-allowed':'');
+    if(!disabled) b.onclick=()=>{currentPage=page;renderTable();};
+    pagination.appendChild(b);
+  };
+  add('‹',currentPage-1,currentPage===1);
+  let s=Math.max(1,currentPage-2), e=Math.min(totalPages,s+4);
+  if(e-s<4) s=Math.max(1,e-4);
+  for(let p=s;p<=e;p++) add(String(p),p,false,p===currentPage);
+  add('›',currentPage+1,currentPage===totalPages);
+}
 
-            if (GAS_WEB_APP_URL) {
-                // Kirim ke Google Apps Script
-                try {
-                    const response = await fetch(GAS_WEB_APP_URL, {
-                        method: 'POST',
-                        body: JSON.stringify(payload),
-                        headers: {
-                            'Content-Type': 'text/plain;charset=utf-8', 
-                        } // text/plain digunakan untuk menghindari preflight CORS error di GAS
-                    });
-                    const result = await response.json();
-                    
-                    if(result.status === 'success') {
-                        showAlert('Usulan berhasil dikirim ke Spreadsheet!');
-                        form.reset();
-                        loadData(); // reload tabel
-                    } else {
-                        showAlert('Gagal menyimpan: ' + result.message, 'error');
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    showAlert('Terjadi kesalahan jaringan saat mengirim data.', 'error');
-                }
-            } else {
-                // Simulasi pengiriman data (In-Memory) agar bisa dicoba di halaman preview
-                setTimeout(() => {
-                    const newItem = {
-                        timestamp: new Date().toISOString(),
-                        ...payload
-                    };
-                    
-                    // Menambah ke awal array
-                    usulanData.unshift(newItem);
-                    
-                    showAlert('Usulan berhasil disimulasikan! (Mode In-Memory)');
-                    form.reset();
-                    
-                    // Refresh tampilan berdasarkan nilai search (jika ada)
-                    const keyword = searchInput.value.toLowerCase().trim();
-                    if (keyword) {
-                        const filtered = usulanData.filter(item => item.nip.toLowerCase().includes(keyword) || item.nama.toLowerCase().includes(keyword));
-                        renderCards(filtered);
-                    } else {
-                        renderCards(usulanData);
-                    }
-                }, 800);
-            }
+function applySearch(){
+  const q=searchInput.value.toLowerCase().trim();
+  filteredData=q?usulanData.filter(x=>[x.nip,x.nama,x.jabatan,x.pangkat,x.tempat_tugas,x.keterangan].join(' ').toLowerCase().includes(q)):[...usulanData];
+  currentPage=1;
+  renderTable();
+}
+searchInput.addEventListener('input',applySearch);
+resetSearch.addEventListener('click',()=>{searchInput.value='';applySearch();searchInput.focus();});
 
-            // Kembalikan state tombol
-            setTimeout(() => {
-                isSubmitting = false;
-                btnSubmit.innerHTML = `<i class="ph ph-paper-plane-tilt"></i> Kirim Usulan`;
-                btnSubmit.classList.remove('opacity-70', 'cursor-not-allowed');
-            }, 800);
-        });
+async function fetchFromGAS(params) {
+  const url = new URL(GAS_WEB_APP_URL);
+  params._t = Date.now();
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+  
+  const response = await fetch(url.toString(), { method: 'GET', redirect: 'follow' });
+  if (!response.ok) throw new Error(`Server response error: ${response.status}`);
+  
+  const text = await response.text();
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    const jsonpMatch = text.match(/^[a-zA-Z0-9_]+\((.*)\);?\s*$/);
+    if (jsonpMatch && jsonpMatch[1]) return JSON.parse(jsonpMatch[1]);
+    throw new Error("Format respons tidak valid dari database.");
+  }
+}
 
-        // Load data saat halaman pertama kali dibuka
-        loadData();
-    </script>
+async function lookupNip(nip){
+  nipStatus.className='text-[11px] mt-1.5 font-medium flex items-center gap-1 text-blue-600';
+  nipStatus.innerHTML='<i class="ph ph-spinner animate-spin"></i>Mencari data pegawai...';
+  try{
+    const result = await fetchFromGAS({ action: 'lookup', nip: nip });
+    if(result && result.status === 'success' && result.data){
+      $('nama').value=result.data.nama||'';
+      $('jabatan').value=result.data.jabatan||'';
+      $('pangkat').value=result.data.pangkat||'';
+      $('tempat_tugas').value=result.data.tempat_tugas||'';
+      
+      nipStatus.className='text-[11px] mt-1.5 font-medium flex items-center gap-1 text-emerald-600';
+      nipStatus.innerHTML='<i class="ph ph-check-circle"></i>Data ditemukan dan dimuat otomatis';
+    } else {
+      resetPegawaiFields();
+      nipStatus.className='text-[11px] mt-1.5 font-medium flex items-center gap-1 text-red-500';
+      nipStatus.innerHTML='<i class="ph ph-warning-circle"></i>Data tidak ditemukan di database';
+    }
+  } catch(err){
+    resetPegawaiFields();
+    nipStatus.className='text-[11px] mt-1.5 font-medium flex items-center gap-1 text-amber-500';
+    nipStatus.innerHTML='<i class="ph ph-warning-circle"></i>Gagal membaca server, pengisian manual diizinkan.';
+  }
+}
+
+function resetPegawaiFields(){
+  $('nama').value='';$('jabatan').value='';$('pangkat').value='';$('tempat_tugas').value='';
+}
+
+nipInput.addEventListener('input',e=>{
+  e.target.value=e.target.value.replace(/\D/g,'').slice(0,18);
+  const v=e.target.value;
+  if(v.length===18) lookupNip(v);
+  else if(!v){nipStatus.classList.add('hidden'); resetPegawaiFields();}
+  else{
+    nipStatus.className='text-[11px] mt-1.5 font-medium flex items-center gap-1 text-slate-500';
+    nipStatus.innerHTML='<i class="ph ph-info"></i>Masukkan 18 digit NIP untuk auto-fill';
+  }
+});
+
+async function loadData(){
+  historyTableBody.innerHTML='<tr><td colspan="9"><div class="flex flex-col items-center justify-center py-16 text-slate-400"><i class="ph ph-spinner animate-spin text-3xl text-blue-500 mb-3"></i><p class="text-sm">Membaca database spreadsheet...</p></div></td></tr>';
+  try{
+    const result = await fetchFromGAS({ action: 'history' });
+    if(result && result.status === 'success'){
+      usulanData=Array.isArray(result.data) ? result.data : [];
+      usulanData.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
+      filteredData=[...usulanData];
+      currentPage=1;
+      renderTable();
+    } else {
+      throw new Error(result.message || 'Data tidak dapat dimuat');
+    }
+  } catch(err){
+    usulanData=[]; filteredData=[]; renderTable();
+    showAlert('Gagal membaca data riwayat dari spreadsheet.','error');
+  }
+}
+
+$('keterangan').addEventListener('input', function() {
+  $('charCount').textContent = this.value.length;
+});
+
+function resetFormState() {
+  isSubmitting = false;
+  btnSubmit.disabled = false;
+  btnSubmit.innerHTML = '<i class="ph ph-paper-plane-tilt text-lg"></i> Kirim Usulan';
+  btnSubmit.classList.remove('opacity-70', 'cursor-not-allowed');
+}
+
+form.addEventListener('submit', async e => {
+  e.preventDefault(); 
+  if(isSubmitting) return;
+  
+  const nip = $('nip').value.trim();
+  if(nip.length !== 18){
+    showAlert('NIP harus terdiri dari 18 digit.','error');
+    nipInput.focus();
+    return;
+  }
+  
+  isSubmitting = true;
+  btnSubmit.disabled = true;
+  btnSubmit.classList.add('opacity-70','cursor-not-allowed');
+  btnSubmit.innerHTML = '<i class="ph ph-spinner animate-spin"></i>Mengirim ke Database...';
+  
+  try {
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData);
+
+    const response = await fetch(GAS_WEB_APP_URL, { method: 'POST', body: params });
+    const result = await response.json();
+
+    if (result && result.status === 'success') {
+      showAlert('Usulan berhasil disimpan ke Database.', 'success');
+      form.reset();
+      $('charCount').textContent = '0';
+      nipStatus.classList.add('hidden');
+      loadData(); 
+    } else {
+      throw new Error(result.message || 'Gagal menyimpan data.');
+    }
+  } catch (err) {
+    showAlert('Gagal menyimpan data. NIP sudah terdaftar dalam daftar usulan.', 'error');
+  } finally {
+    resetFormState();
+  }
+});
+
+function openDetail(index){
+  const item=filteredData[index]; if(!item) return;
+  modalContent.innerHTML=`
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="md:col-span-2 flex items-center gap-4 p-4 rounded-xl bg-blue-50 border border-blue-100">
+        <div class="avatar w-12 h-12 min-w-12">${escapeHTML(getInitials(item.nama))}</div>
+        <div>
+          <p class="text-base font-bold text-slate-900">${escapeHTML(item.nama)||'-'}</p>
+          <p class="text-xs text-blue-700 font-mono mt-1">NIP ${escapeHTML(item.nip)||'-'}</p>
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50"><p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Jabatan</p><p class="text-sm font-semibold text-slate-700 mt-1">${escapeHTML(item.jabatan)||'-'}</p></div>
+      <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50"><p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Pangkat/Golongan</p><p class="text-sm font-semibold text-slate-700 mt-1">${escapeHTML(item.pangkat)||'-'}</p></div>
+      <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50"><p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Tempat Tugas</p><p class="text-sm font-semibold text-slate-700 mt-1">${escapeHTML(item.tempat_tugas)||'-'}</p></div>
+      <div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50"><p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Tanggal Usulan</p><p class="text-sm font-semibold text-slate-700 mt-1">${formatDate(item.timestamp)}</p></div>
+      <div class="md:col-span-2 p-4 rounded-xl border border-blue-100 bg-blue-50/60"><p class="text-xs font-bold text-blue-800 mb-2"><i class="ph ph-chat-text mr-1"></i>Keterangan / Alasan Usulan</p><p class="text-sm leading-6 text-slate-700 whitespace-pre-line">${escapeHTML(item.keterangan)||'-'}</p></div>
+    </div>`;
+  detailModal.classList.remove('hidden'); detailModal.classList.add('flex'); document.body.classList.add('overflow-hidden');
+}
+
+function closeDetail(){
+  detailModal.classList.add('hidden'); detailModal.classList.remove('flex'); document.body.classList.remove('overflow-hidden');
+}
+
+historyTableBody.addEventListener('click', e => {
+  const b = e.target.closest('.detail-btn');
+  if(b) openDetail(Number(b.dataset.index));
+});
+
+/* ===== PETUNJUK PENGISIAN ===== */
+const instructionModal = $('instructionModal');
+const openGuideBtn = $('openGuideBtn');
+const closeGuideTop = $('closeGuideTop');
+const startFormBtn = $('startFormBtn');
+
+function openInstructionGuide(){
+  instructionModal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+  setTimeout(() => startFormBtn?.focus(), 80);
+}
+
+function closeInstructionGuide(){
+  instructionModal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+  setTimeout(() => nipInput?.focus(), 80);
+}
+
+openGuideBtn?.addEventListener('click', openInstructionGuide);
+closeGuideTop?.addEventListener('click', closeInstructionGuide);
+startFormBtn?.addEventListener('click', closeInstructionGuide);
+
+instructionModal?.addEventListener('click', e => {
+  if(e.target === instructionModal) closeInstructionGuide();
+});
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && instructionModal && !instructionModal.classList.contains('hidden')){
+    closeInstructionGuide();
+  }
+});
+
+window.addEventListener('load', () => {
+  setTimeout(openInstructionGuide, 250);
+});
+
+$('closeModal').onclick = closeDetail;
+$('closeModalBottom').onclick = closeDetail;
+detailModal.onclick = e => { if(e.target === detailModal) closeDetail(); };
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeDetail(); });
+
+loadData();
+</script>
 </body>
 </html>
